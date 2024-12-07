@@ -1,73 +1,85 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
-</p>
+# SynergyPc Backend
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+## Puesta en marcha del proyecto
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
-
-## Description
-
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
-
-## Installation
+### Instalar dependencias y compilar el proyecto
 
 ```bash
-$ npm install
+npm install && npm run build
 ```
 
-## Running the app
+### Mantener la rama actualizada con master
+
+Para evitar conflictos y mantener la rama en la que estás trabajando sincronizada con los últimos cambios en main, es importante actualizar regularmente. Esto se recomienda hacerlo antes de empezar a trabajar y al finalizar el día.
+
+Pasos para hacer merge de main a la rama actual:
 
 ```bash
-# development
-$ npm run start
+# Paso 1. Asegúrate de estar en la rama actual
+git checkout tu-rama
 
-# watch mode
-$ npm run start:dev
+# Paso 2. Traer los últimos cambios del remoto
+git pull
 
-# production mode
-$ npm run start:prod
+# Paso 3. Hacer merge de main a la rama actual
+git merge origin/main
+
+# Paso 4. Resolver conflictos si los hay
+
+# Paso 5. Instalar dependencias, compilar y correr tests
+npm install && npm run build && npm test
+
+# Paso 6. Resolver problemas si los hay y repetir el paso 5
+
 ```
 
-## Test
+## Levantar el servidor de desarrollo
+
+Para iniciar el servidor en modo desarrollo, utiliza el siguiente comando:
 
 ```bash
-# unit tests
-$ npm run test
-
-# e2e tests
-$ npm run test:e2e
-
-# test coverage
-$ npm run test:cov
+npm run start:dev
 ```
 
-## Support
+## Proceso de trabajo
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+### Consideraciones para los commits
 
-## Stay in touch
+- Los commits deben estar en inglés y describir brevemente los cambios realizados.
+- Evita commits grandes que cambien muchas cosas a la vez. Opta por commits pequeños y específicos.
+- Antes de hacer push, revisa los mensajes de commit para asegurarte de que son claros y descriptivos.
 
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+### Consideraciones para las ramas
 
-## License
+- No hagas push directamente a main. Todos los cambios deben ir a través de un Pull Request (PR).
+- Usa ramas de vida corta que duren un par de días como máximo.
+- Crea ramas desde main o desde una rama relacionada que aún no haya sido fusionada.
+- Nombra las ramas en kebab-case con el formato [tipo]-[descripción]:
+  - tipo puede ser:
+    - `feature`: para agregar funcionalidad nueva.
+    - `fix`: para corregir errores.
+    - `chore`: para mantenimiento, configuración o documentación.
+  - Ejemplos válidos:
+    - `feature-add-user-authentication`
+    - `fix-checkout-bug`
+    - `chore-update-readme`
 
-Nest is [MIT licensed](LICENSE).
+### Consideraciones para los Pull Requests
+
+- Los PRs deben tener un título corto y descriptivo.
+- Divide los cambios grandes en varios PRs más pequeños si es posible.
+- Asegúrate de que el PR pase todas las pruebas antes de solicitar revisión.
+- Asigna al menos un revisor para que apruebe los cambios antes de fusionar.
+
+### Reglas de código y revisiones
+
+#### Organización del código
+
+- Usa nombres descriptivos y consistentes para variables, funciones y clases.
+- Elimina código comentado o innecesario.
+- No uses console.log en producción; depende de los logs configurados o de herramientas de depuración.
+
+#### Limpieza y estructura
+
+- Evita duplicar código; abstrae funcionalidades comunes en métodos reutilizables.
+- Organiza el código para que sea fácil de entender y modificar.
